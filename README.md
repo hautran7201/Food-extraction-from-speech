@@ -1,7 +1,6 @@
 # Food-extraction-from-speech
 (description)
 
-
 ## Folder structure:
 ```
     .
@@ -30,7 +29,6 @@
     + Download 2 files from link: https://drive.google.com/drive/folders/17UKEvlf_xMnc2zKrM1p8zQm7MR0M0Iq6?usp=sharing
 
 
-
 ## Run Command:
 Update pip:
 ```
@@ -41,10 +39,19 @@ Create and start virtual environments:
 ```
     pip install virtualenv
     python -m venv env
+    
+    # Windows activate
     env\Scripts\activate
+    deactivate
+
+    # Linux activate
+    source env/bin/activate
+    deactivate
 ```
+
 Installing required packages:
 ```
     pip install -r requirements.txt
+    python -m spacy download en_core_web_sm
 ```
 

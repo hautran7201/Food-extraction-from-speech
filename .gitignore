@@ -1,5 +1,8 @@
 Data
-ITemList
+ItemList
 Mwe
-env
+*env*
+*venv*
+__pycache__
+*.vscode
 

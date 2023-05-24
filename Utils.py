@@ -1,7 +1,10 @@
 import nltk 
 import re 
+import os
 
-# nltk.download('punkt')
+BASE_DIR = os.getcwd()
+
+nltk.download('punkt',download_dir=os.path.join(BASE_DIR,'env'))
 
 def tokenizer(data, mwe=[], lang='english'):
   tokens = []

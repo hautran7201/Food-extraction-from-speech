@@ -55,3 +55,8 @@ Installing required packages:
     python -m spacy download en_core_web_sm
 ```
 
+Run Food extraction:
+```
+    python main.py
+```
+

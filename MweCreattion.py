@@ -2,6 +2,7 @@ import re
 import ast
 
 from num2words import num2words
+
 def create_mwe(data, column, array_item=False, unique=True):
     raw = data[column].str.strip().to_list()
 

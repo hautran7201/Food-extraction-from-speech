@@ -37,18 +37,18 @@ import pandas as pd
 import numpy as np
 
 from Ner import *
-from TranscribeText import transcribe_text
+# from TranscribeText import transcribe_text
 
-food_path = r'Mwe\food_mwe.npy'
+food_path = r'D:\EXE\Vetula app\Ingredient extraction from speech - Copy\Mwe\food_mwe.npy'
 food_mwe = list(np.load(food_path, allow_pickle=True))
 
-ingredient_path = r'Mwe\ingredient_mwe.npy'
+ingredient_path = r'D:\EXE\Vetula app\Ingredient extraction from speech - Copy\Mwe\ingredient_mwe.npy'
 ingredient_mwe = list(np.load(ingredient_path, allow_pickle=True))
 
-food_path = r'ItemList\food_list.npy'
+food_path = r'D:\EXE\Vetula app\Ingredient extraction from speech - Copy\ItemList\food_list.npy'
 food_list = list(np.load(food_path, allow_pickle=True))
 
-ingredient_path = r'ItemList\ingredient_list.npy'
+ingredient_path = r'D:\EXE\Vetula app\Ingredient extraction from speech - Copy\ItemList\ingredient_list.npy'
 ingredient_list = list(np.load(ingredient_path, allow_pickle=True))
 
 mwe = food_mwe + ingredient_mwe

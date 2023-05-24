@@ -1,6 +1,6 @@
 # Food-extraction-from-speech
 
-Folder:
+Create folder:
 
     - Data: 
         + Download data from link: https://www.kaggle.com/datasets/paultimothymooney/recipenlg

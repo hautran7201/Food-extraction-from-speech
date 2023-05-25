@@ -2,20 +2,33 @@
 (description)
 
 ## Folder structure:
-```
-    .
-    ├── Audio
-    ├── Data        * Data folder   
-    ├── env         * Environment folder (created after run command below)
-    ├── ITemList    * .npy folder
-    ├── main.py
-    ├── Mwe         * .Mwe folder
-    ├── MweCreattion.py
-    ├── Ner.py
-    ├── __pycache__
-    ├── README.md
-    ├── TranscribeText.py
-    └── Utils.py
+```bash
+│   .gitignore
+│   main.py
+│   Ner.py
+│   README.md
+│   requirements.txt
+│   TranscribeText.py
+│   Utils.py
+│
+├───Audio
+│       sample-0.mp3
+│
+├───Data
+│       Source.txt
+│
+├───Item List
+│   │   CreateItemList.py
+│   │
+│   └───Data
+│           Source.txt
+│
+└───Mwe List
+    │   CreateMweList.py
+    │   MweCreation.py
+    │
+    └───Data
+            Source.txt
 ```
 
 - Data: 

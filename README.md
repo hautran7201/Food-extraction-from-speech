@@ -81,7 +81,6 @@ DownLoad data
 ```
 
 # Usage 
------
 ### From command line
 ```
     $ # Speech to text 

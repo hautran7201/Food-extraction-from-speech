@@ -68,19 +68,19 @@ def ingredient_extraction(data, mwe, library, condition=['NOUN', 'PROPN']):
 
 if __name__ == '__main__':
 
-  food_path = r'C:\Users\soaic\Desktop\EXE\Vetula app\Ingredient extraction from speech - Copy\Mwe\food_mwe.npy'
+  food_path = r'Mwe List\Data\food_mwe.npy'
   #food_path = r'Mwe List\Data\food_mwe.npy'
   food_mwe = list(np.load(food_path, allow_pickle=True))
 
-  ingredient_path = r'C:\Users\soaic\Desktop\EXE\Vetula app\Ingredient extraction from speech - Copy\Mwe\ingredient_mwe.npy'
+  ingredient_path = r'Mwe List\Data\ingredient_mwe.npy'
   #ingredient_path = r'Mwe List\Data\ingredient_mwe.npy'
   ingredient_mwe = list(np.load(ingredient_path, allow_pickle=True))
 
-  food_path = r'C:\Users\soaic\Desktop\EXE\Vetula app\Ingredient extraction from speech - Copy\ItemList\food_list.npy'
+  food_path = r'Item List\Data\food_list.npy'
   #food_path = r'Item List\Data\food_list.npy'
   food_list = list(np.load(food_path, allow_pickle=True))
 
-  ingredient_path = r'C:\Users\soaic\Desktop\EXE\Vetula app\Ingredient extraction from speech - Copy\ItemList\ingredient_list.npy'
+  ingredient_path = r'Item List\Data\ingredient_list.npy'
   #ingredient_path = r'Item List\Data\ingredient_list.npy'
   ingredient_list = list(np.load(ingredient_path, allow_pickle=True))
 
@@ -91,18 +91,20 @@ if __name__ == '__main__':
   # Input paramaters from command line
   path = sys.argv[1] if len(sys.argv) > 1 else None
   condition = sys.argv[2] if len(sys.argv) > 2 else ['NOUN', 'PROPN']
+  data = read_file(path)
 
-  # Load data from file
-  file = open(path, 'r')
+  # Extract entity from text
+  result = ingredient_extraction(data, mwe, library, condition)
 
-  # Read file
-  data = file.read()
+  # Save entity list to file
+  file_name = os.path.basename(path)
+  name = os.path.splitext(file_name)[0]
 
-  # Close file
+  path = f'Data\Entity\{name}.txt'
+
+  file = open(path,'w')
+  for item in result:
+    file.write(item+"\n")
   file.close()
 
-  print('\nRaw text:')
-  print(data)
-
-  print('\nEntity extraction:')
-  print(ingredient_extraction(data, mwe, library, condition))
+  print(result)

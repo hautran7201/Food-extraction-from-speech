@@ -15,6 +15,14 @@ def read_file(path):
 
   return content
 
+def write_file(path, data):
+  file = open(path, 'w')
+
+  # Write file
+  file.write(data)
+
+  # Close file
+  file.close()
 
 def download_data():
   source = {

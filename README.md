@@ -1,17 +1,9 @@
-# **Food-extraction-from-speech**
-
-## Desciption:
----
-Extract food and ingredient entity from audio file.
-
-## Diagram:
----
+# Food-extraction-from-speech
+Diagram:
 ![inq5erdiagram](https://github.com/hautran7201/Food-extraction-from-speech/assets/100859592/f34cce0d-1c6e-4d5d-834c-9e649aa13c8c)
 
 
 ## Folder structure:
------
-
 ```bash
 │   .gitignore
 │   Ner.py
@@ -44,8 +36,16 @@ Extract food and ingredient entity from audio file.
             Source.txt
 ```
 
-## Installation:
------
+- Data: 
+    + Download data from lin: [link](https://www.kaggle.com/datasets/paultimothymooney/recipenlg)
+    + Put the file RecipeNLG_dataset.csv to Data folder
+
+- ItemList:
+    + Download 2 files from link: [Item list](https://drive.google.com/drive/folders/1IOOSYrIxSwDZSNfZUwEt1zxIEGGB-wM2?usp=sharing)
+
+- Mwe:
+    + Download 2 files from link: [Mwe list](https://drive.google.com/drive/folders/17UKEvlf_xMnc2zKrM1p8zQm7MR0M0Iq6?usp=sharing)
+
 
 Update pip:
 ```
@@ -77,9 +77,7 @@ DownLoad data
     python Utils.py download_data
 ```
 
-# Usage 
------
-### From command line
+Run Food extraction:
 ```
     $ # Speech to text 
     $ python TranscribeText.py Data\Audio\sample.mp3

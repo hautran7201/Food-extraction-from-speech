@@ -6,18 +6,21 @@ Diagram:
 ## Folder structure:
 ```bash
 │   .gitignore
-│   main.py
 │   Ner.py
 │   README.md
 │   requirements.txt
 │   TranscribeText.py
 │   Utils.py
 │
-├───Audio
-│       sample-0.mp3
-│
 ├───Data
-│       Source.txt
+│   ├───Audio
+│   │       sample-0.mp3
+│   │
+│   ├───Document
+│   │       Recipe.txt
+│   │
+│   └───Source
+│           Source.txt
 │
 ├───Item List
 │   │   CreateItemList.py

@@ -1,16 +1,13 @@
 # **Food-extraction-from-speech**
 
 ## Desciption:
----
 Extract food and ingredient entity from audio file.
 
 ## Diagram:
----
 ![inq5erdiagram](https://github.com/hautran7201/Food-extraction-from-speech/assets/100859592/f34cce0d-1c6e-4d5d-834c-9e649aa13c8c)
 
 
 ## Folder structure:
------
 
 ```bash
 │   .gitignore
@@ -45,7 +42,6 @@ Extract food and ingredient entity from audio file.
 ```
 
 ## Installation:
------
 
 Update pip:
 ```
@@ -78,7 +74,6 @@ DownLoad data
 ```
 
 # Usage 
------
 ### From command line
 ```
     $ # Speech to text 

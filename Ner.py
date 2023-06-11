@@ -1,6 +1,6 @@
 import spacy
 import numpy as np 
-import sys
+import time
 
 from Utils import *
 spa = spacy.load("en_core_web_sm")
@@ -8,19 +8,21 @@ spa = spacy.load("en_core_web_sm")
 def pos_tagger_spacy(data, mwe=[]): 
   tokenized_text = [" ".join(i) for i in tokenizer(data, mwe)]
   spacy_token = list(spa.pipe(tokenized_text))
+  
   return spacy_token
 
-def entity_tagger_spacy(data, library, condition=['PROPN', 'NOUN']):
+def entity_tagger_spacy(data, mwe, condition=['PROPN', 'NOUN']):
   entity_tokens = []
+
   for r in data:
     for c in r:
       word, tag = c.text, c.pos_
       token_tag = []
-      
+
       for token in spa(word.replace('_', ' ')):
         token_tag.append([token.text, token.pos_, token.is_stop])
 
-      if (word in library) and sum([(i in np.array(token_tag)[:, 1]) for i in condition]) > 0:
+      if (word.split('_') in mwe) and sum([(i in np.array(token_tag)[:, 1]) for i in condition]) > 0:
         for index, token in enumerate([i[0] for i in token_tag if i[2]==False]):
           if index==0:
             entity_tokens.append(token+' '+'B-INGREDIENT'+' '+tag)
@@ -48,11 +50,11 @@ def bio_extraction(entity_list):
     
   return result
 
-def ingredient_extraction(data, mwe, library, condition=['NOUN', 'PROPN']):  
+def ingredient_extraction(data, mwe, condition=['NOUN', 'PROPN']):  
 
   docs = pos_tagger_spacy(data, mwe)
 
-  entity = entity_tagger_spacy(docs, library, condition)
+  entity = entity_tagger_spacy(docs, mwe, condition)
 
   bio = bio_extraction(entity)
 
@@ -68,25 +70,9 @@ def ingredient_extraction(data, mwe, library, condition=['NOUN', 'PROPN']):
 
 if __name__ == '__main__':
 
-  food_path = r'Mwe List\Data\food_mwe.npy'
+  path = r'Mwe List\Data\mwe.npy'
   #food_path = r'Mwe List\Data\food_mwe.npy'
-  food_mwe = list(np.load(food_path, allow_pickle=True))
-
-  ingredient_path = r'Mwe List\Data\ingredient_mwe.npy'
-  #ingredient_path = r'Mwe List\Data\ingredient_mwe.npy'
-  ingredient_mwe = list(np.load(ingredient_path, allow_pickle=True))
-
-  food_path = r'Item List\Data\food_list.npy'
-  #food_path = r'Item List\Data\food_list.npy'
-  food_list = list(np.load(food_path, allow_pickle=True))
-
-  ingredient_path = r'Item List\Data\ingredient_list.npy'
-  #ingredient_path = r'Item List\Data\ingredient_list.npy'
-  ingredient_list = list(np.load(ingredient_path, allow_pickle=True))
-
-  # Create mwe and library variable
-  mwe = food_mwe + ingredient_mwe
-  library = food_list + ingredient_list
+  mwe = list(np.load(path, allow_pickle=True))
 
   # Input paramaters from command line
   path = sys.argv[1] if len(sys.argv) > 1 else None
@@ -94,7 +80,7 @@ if __name__ == '__main__':
   data = read_file(path)
 
   # Extract entity from text
-  result = ingredient_extraction(data, mwe, library, condition)
+  result = ingredient_extraction(data, mwe, condition)
 
   # Save entity list to file
   file_name = os.path.basename(path)

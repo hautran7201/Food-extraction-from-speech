@@ -26,12 +26,8 @@ def write_file(path, data):
 
 def download_data():
   source = {
-    'ItemList': read_file('Item List\Data\Source.txt'),
     'MweList': read_file('Mwe List\Data\Source.txt')
   }
-
-  # Download ItemList
-  gdown.download_folder(source['ItemList'], output='Item List\Data')
 
   # Download MweList
   gdown.download_folder(source['MweList'], output='Mwe List\Data')

@@ -9,35 +9,33 @@ Extract food and ingredient entity from audio file.
 ## Folder structure:
 
 ```bash
-│   .gitignore
-│   Ner.py
-│   README.md
-│   requirements.txt
-│   TranscribeText.py
-│   Utils.py
-│
-├───Data
-│   ├───Audio
-│   │       sample-0.mp3
-│   │
-│   ├───Document
-│   │       Recipe.txt
-│   │
-│   └───Source
-│           Source.txt
-│
-├───Item List
-│   │   CreateItemList.py
-│   │
-│   └───Data
-│           Source.txt
-│
-└───Mwe List
-    │   CreateMweList.py
-    │   MweCreation.py
-    │
-    └───Data
-            Source.txt
+├── .gitignore
+├── Data/
+│   ├── Audio/
+│   │   └── sample.mp3
+│   ├── Document/
+│   │   └── Recipe.txt
+│   ├── Entity/
+│   │   └── Recipe.txt
+│   └── Source/
+│       └── Source.txt
+├── Mwe List/
+│   ├── CreateMweList.py
+│   ├── CreateRankList.py
+│   ├── Data/
+│   │   ├── food_ranking.npy
+│   │   ├── ingredient_ranking.npy
+│   │   ├── mwe.npy
+│   │   └── Source.txt
+│   ├── Food_ranking.py
+│   ├── Ingredient_ranking.py
+│   └── MweCreation.py
+├── Ner.py
+├── README.md
+├── requirements.txt
+├── TranscribeText.py
+├── tree.py
+└── Utils.py
 ```
 
 ## Installation:

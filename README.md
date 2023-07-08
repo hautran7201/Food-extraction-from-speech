@@ -11,12 +11,9 @@ Extract food and ingredient entity from audio file.
 ```bash
 ├── .gitignore
 ├── Data/
-│   ├── Audio/
-│   │   └── sample.mp3
-│   ├── Document/
-│   │   └── Recipe.txt
-│   ├── Entity/
-│   │   └── Recipe.txt
+│   ├── Audio
+│   ├── Document
+│   ├── Entity
 │   └── Source/
 │       └── Source.txt
 ├── Mwe List/
